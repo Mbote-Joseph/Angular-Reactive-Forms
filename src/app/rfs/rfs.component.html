@@ -1,0 +1,41 @@
+<h3>Form Control</h3>
+<div class="form-group container">
+  <br />
+  <label>
+    Employee Name:
+
+    <input class="form-control" type="Text" [formControl]="employeeName" />
+  </label>
+
+  <p>Value: {{ employeeName.value }}</p>
+
+  <button type="button" class="btn btn-primary" (click)="updateEmployeeName()">
+    Refresh
+  </button>
+</div>
+
+<h3>Employee Group</h3>
+<div class="form-group container">
+  <form [formGroup]="employeeForm">
+    <br />
+    <label>
+      Employee Name:
+      <input class="form-control" type="Text" formControlName="employeeName" />
+    </label>
+    <br />
+    <label>
+      Employee Email:
+      <input class="form-control" type="Text" formControlName="employeeEmail" />
+    </label>
+    <br />
+    <label>
+      Employee Phone:
+      <input class="form-control" type="Text" formControlName="employeePhone" />
+    </label>
+    <br />
+  </form>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
